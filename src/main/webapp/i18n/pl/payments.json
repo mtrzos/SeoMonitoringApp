@@ -1,0 +1,12 @@
+{
+    "payments": {
+        "title": "Płatność za [<b>{{username}}</b>]",
+        "form": {
+            "button": "Zapisz"
+        },
+        "messages": {
+            "error":  "<strong>Wystapił bład!</strong> The password could not be changed.",
+            "success": "<strong>Password changed!</strong>"
+        }
+    }
+}

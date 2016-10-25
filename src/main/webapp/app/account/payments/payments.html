@@ -1,0 +1,29 @@
+<div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h2 data-translate="payments.title" translate-values="{username: '{{vm.account.login}}'}">payments for [<b>{{vm.account.login}}</b>]</h2>
+
+            <div class="alert alert-success" ng-hide="vm.success" data-translate="payments.messages.success">
+                <strong>payments changed!</strong>
+            </div>
+            <div class="alert alert-danger" ng-show="vm.success"  data-translate="payments.messages.error">
+                <strong>An error has occurred!</strong> The payments could not be changed.
+            </div>
+            <form action="/api/payments" method="POST" id="payment-form">
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_y6rspIWJgrEMjHX7jeH3ajr0"
+                data-amount="899"
+                data-name="vps316870.ovh.net"
+                data-description="Widget"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                data-locale="auto"
+                data-zip-code="true"
+                data-currency="pln">
+              </script>
+              <input name="_csrf" type="hidden" value="{{ csrf }}"/>
+            </form>
+
+        </div>
+    </div>
+</div>
