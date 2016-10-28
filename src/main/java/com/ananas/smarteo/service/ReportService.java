@@ -19,7 +19,7 @@ public interface ReportService {
 
     /**
      *  Get all the reports.
-     *  
+     *
      *  @return the list of entities
      */
     List<Report> findAll();

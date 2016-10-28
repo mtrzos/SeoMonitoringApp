@@ -19,7 +19,7 @@ import java.util.List;
 public class ReportServiceImpl implements ReportService{
 
     private final Logger log = LoggerFactory.getLogger(ReportServiceImpl.class);
-    
+
     @Inject
     private ReportRepository reportRepository;
 
@@ -37,10 +37,10 @@ public class ReportServiceImpl implements ReportService{
 
     /**
      *  Get all the reports.
-     *  
+     *
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public List<Report> findAll() {
         log.debug("Request to get all Reports");
         List<Report> result = reportRepository.findAll();
@@ -54,7 +54,7 @@ public class ReportServiceImpl implements ReportService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Report findOne(Long id) {
         log.debug("Request to get Report : {}", id);
         Report report = reportRepository.findOne(id);

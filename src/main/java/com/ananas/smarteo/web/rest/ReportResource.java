@@ -26,7 +26,7 @@ import java.util.Optional;
 public class ReportResource {
 
     private final Logger log = LoggerFactory.getLogger(ReportResource.class);
-        
+
     @Inject
     private ReportService reportService;
 

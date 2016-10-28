@@ -24,19 +24,23 @@
             <column name="date" type="timestamp">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="position" type="integer">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="phrase" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="website" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
+            <column name="location" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
             <column name="user_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -44,6 +48,6 @@
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="report" columnName="date" columnDataType="datetime"/>
-        
+
     </changeSet>
 </databaseChangeLog>

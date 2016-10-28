@@ -34,6 +34,9 @@ public class Report implements Serializable {
     @Column(name = "website")
     private String website;
 
+    @Column(name = "location")
+    private String location;
+
     @ManyToOne
     private User user;
 
@@ -97,6 +100,19 @@ public class Report implements Serializable {
         this.website = website;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public Report location(String location) {
+        this.location = location;
+        return this;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     public User getUser() {
         return user;
     }
@@ -138,6 +154,7 @@ public class Report implements Serializable {
             ", position='" + position + "'" +
             ", phrase='" + phrase + "'" +
             ", website='" + website + "'" +
+            ", location='" + location + "'" +
             '}';
     }
 }

@@ -25,6 +25,10 @@
         {
             "fieldName": "website",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "location",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20161026214629",

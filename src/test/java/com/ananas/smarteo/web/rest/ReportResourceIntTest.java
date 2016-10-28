@@ -56,6 +56,9 @@ public class ReportResourceIntTest {
     private static final String DEFAULT_WEBSITE = "AAAAA";
     private static final String UPDATED_WEBSITE = "BBBBB";
 
+    private static final String DEFAULT_LOCATION = "AAAAA";
+    private static final String UPDATED_LOCATION = "BBBBB";
+
     @Inject
     private ReportRepository reportRepository;
 
@@ -96,7 +99,8 @@ public class ReportResourceIntTest {
                 .date(DEFAULT_DATE)
                 .position(DEFAULT_POSITION)
                 .phrase(DEFAULT_PHRASE)
-                .website(DEFAULT_WEBSITE);
+                .website(DEFAULT_WEBSITE)
+                .location(DEFAULT_LOCATION);
         return report;
     }
 
@@ -125,6 +129,7 @@ public class ReportResourceIntTest {
         assertThat(testReport.getPosition()).isEqualTo(DEFAULT_POSITION);
         assertThat(testReport.getPhrase()).isEqualTo(DEFAULT_PHRASE);
         assertThat(testReport.getWebsite()).isEqualTo(DEFAULT_WEBSITE);
+        assertThat(testReport.getLocation()).isEqualTo(DEFAULT_LOCATION);
     }
 
     @Test
@@ -141,7 +146,8 @@ public class ReportResourceIntTest {
                 .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE_STR)))
                 .andExpect(jsonPath("$.[*].position").value(hasItem(DEFAULT_POSITION)))
                 .andExpect(jsonPath("$.[*].phrase").value(hasItem(DEFAULT_PHRASE.toString())))
-                .andExpect(jsonPath("$.[*].website").value(hasItem(DEFAULT_WEBSITE.toString())));
+                .andExpect(jsonPath("$.[*].website").value(hasItem(DEFAULT_WEBSITE.toString())))
+                .andExpect(jsonPath("$.[*].location").value(hasItem(DEFAULT_LOCATION.toString())));
     }
 
     @Test
@@ -158,7 +164,8 @@ public class ReportResourceIntTest {
             .andExpect(jsonPath("$.date").value(DEFAULT_DATE_STR))
             .andExpect(jsonPath("$.position").value(DEFAULT_POSITION))
             .andExpect(jsonPath("$.phrase").value(DEFAULT_PHRASE.toString()))
-            .andExpect(jsonPath("$.website").value(DEFAULT_WEBSITE.toString()));
+            .andExpect(jsonPath("$.website").value(DEFAULT_WEBSITE.toString()))
+            .andExpect(jsonPath("$.location").value(DEFAULT_LOCATION.toString()));
     }
 
     @Test
@@ -183,7 +190,8 @@ public class ReportResourceIntTest {
                 .date(UPDATED_DATE)
                 .position(UPDATED_POSITION)
                 .phrase(UPDATED_PHRASE)
-                .website(UPDATED_WEBSITE);
+                .website(UPDATED_WEBSITE)
+                .location(UPDATED_LOCATION);
 
         restReportMockMvc.perform(put("/api/reports")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -198,6 +206,7 @@ public class ReportResourceIntTest {
         assertThat(testReport.getPosition()).isEqualTo(UPDATED_POSITION);
         assertThat(testReport.getPhrase()).isEqualTo(UPDATED_PHRASE);
         assertThat(testReport.getWebsite()).isEqualTo(UPDATED_WEBSITE);
+        assertThat(testReport.getLocation()).isEqualTo(UPDATED_LOCATION);
     }
 
     @Test

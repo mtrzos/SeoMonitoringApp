@@ -20,6 +20,7 @@
             "position": "Position",
             "phrase": "Phrase",
             "website": "Website",
+            "location": "Location",
             "user": "User"
         }
     }
