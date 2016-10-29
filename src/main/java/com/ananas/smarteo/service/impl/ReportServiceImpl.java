@@ -88,6 +88,19 @@ public class ReportServiceImpl implements ReportService{
     }
 
     /**
+     *  Get the location reports.
+     *
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public List<String> findByCompetitor() {
+        log.debug("Request to get location Reports");
+        List<String> result = reportRepository.findDistinctCompetitor();
+
+        return result;
+    }
+
+    /**
      *  Get one report by id.
      *
      *  @param id the id of the entity

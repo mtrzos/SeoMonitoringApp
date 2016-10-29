@@ -19,4 +19,7 @@ public interface ReportRepository extends JpaRepository<Report,Long> {
 
     @Query("select distinct location from Report report where report.user.login = ?#{principal.username}")
     List<String> findDistinctLocation();
+
+    @Query("select distinct website from Report report where report.user.login = ?#{principal.username}")
+    List<String> findDistinctCompetitor();
 }

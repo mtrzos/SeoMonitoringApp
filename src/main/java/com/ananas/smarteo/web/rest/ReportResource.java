@@ -133,6 +133,20 @@ public class ReportResource {
     }
 
     /**
+     * GET  /reports/location/:location : get the "location" reports.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of reports in body
+     */
+    @RequestMapping(value = "/reports/competitors",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<String> getCompetitors() {
+        log.debug("REST request to get location Reports");
+        return reportService.findByCompetitor();
+    }
+
+    /**
      * GET  /reports/:id : get the "id" report.
      *
      * @param id the id of the report to retrieve

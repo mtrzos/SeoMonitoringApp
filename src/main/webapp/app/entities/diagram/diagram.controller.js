@@ -5,53 +5,155 @@
         .module('seoApp')
         .controller('DiagramController', DiagramController);
 
-    DiagramController.$inject = ['$scope', '$state', 'Report', '$log'];
+    DiagramController.$inject = ['$scope', '$state', 'Report', '$log', 'DiagramService'];
 
-    function DiagramController ($scope, $state, Report, $log) {
+    function DiagramController ($scope, $state, Report, $log, DiagramService) {
         var vm = this;
+        DiagramService.getLocations().then(function(data){
+            $scope.locations = data;
+//            $log.info("Then: " + $scope.locations);
+        });
+        DiagramService.getReportsForLocation('glasgow').then(function(data){
+            $scope.locationReports = data;
+//            $log.info($scope.locationReports);
+        });
+        DiagramService.getCompetitors().then(function(data){
+            $scope.competitors = data;
+//            $log.info("Competitors: "+$scope.competitors);
+        });
 
-      google.charts.load('current', {'packages':['line']});
-      google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
 
-      var data = new google.visualization.DataTable();
-      data.addColumn('date', 'Data');
-      data.addColumn('number', 'Guardians of the Galaxy');
-      data.addColumn('number', 'The Avengers');
-      data.addColumn('number', 'Transformers: Age of Extinction');
-
-      data.addRows([
-        [new Date('Jan 2, 2015'),  37.8, 80.8, 41.8],
-        [new Date('Jan 3, 2015'),  30.9, 69.5, 32.4],
-        [new Date('Jan 4, 2015'),  25.4,   57, 25.7],
-        [new Date('Jan 5, 2015'),  11.7, 18.8, 10.5],
-        [new Date('Jan 6, 2015'),  11.9, 17.6, 10.4],
-        [new Date('Jan 7, 2015'),   8.8, 13.6,  7.7],
-        [new Date('Jan 8, 2015'),   7.6, 12.3,  9.6],
-        [new Date('Jan 9, 2015'),  12.3, 29.2, 10.6],
-        [new Date('Jan 10, 2015'),  16.9, 42.9, 14.8],
-        [new Date('Jan 11, 2015'), 12.8, 30.9, 11.6],
-        [new Date('Jan 12, 2015'),  5.3,  7.9,  4.7],
-        [new Date('Jan 13, 2015'),  6.6,  8.4,  5.2],
-        [new Date('Jan 14, 2015'),  4.8,  6.3,  3.6],
-        [new Date('Jan 15, 2015'),  4.2,  6.2,  3.4]
-      ]);
-
-      var options = {
-        curveType: 'function',
-        chart: {
-          title: 'Box Office Earnings in First Two Weeks of Opening',
-          subtitle: 'in millions of dollars (USD)'
-        },
-        width: 900,
-        height: 500
-      };
-
-      var chart = new google.charts.Line(document.getElementById('linechart_material'));
-
-      chart.draw(data, options);
+$scope.Last30Days = function() {
+    var result = [];
+    for (var i=0; i<31; i++) {
+        var d = new Date();
+        d.setDate(d.getDate() - i);
+        var day = d.getDate();
+        var month = d.getMonth();
+        var year = d.getFullYear();
+        result.push(day+"-"+month+"-"+year)
     }
+    return result;
+}
+
+$scope.Last14Days = function () {
+    var result = [];
+    for (var i=0; i<14; i++) {
+        var d = new Date();
+        d.setDate(d.getDate() - i);
+        var day = d.getDate();
+        var month = d.getMonth();
+        var year = d.getFullYear();
+        result.push(day+"-"+month+"-"+year)
+    }
+    return result;
+}
+
+$scope.Last7Days = function () {
+    var result = [];
+    for (var i=0; i<7; i++) {
+        var d = new Date();
+        d.setDate(d.getDate() - i);
+        var day = d.getDate();
+        var month = d.getMonth();
+        var year = d.getFullYear();
+        result.push(day+"-"+month+"-"+year)
+    }
+    return result;
+}
+
+
+$scope.week = $scope.Last7Days();
+
+var data = {
+    labels: $scope.week,
+    datasets: [
+        {
+            label: "My First dataset",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [6, 5, 8, 8, 5, 5, 4, 1, 3, 7, 9, 5, 6, 7],
+            spanGaps: false,
+        },
+        {
+            label: "My second dataset",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13],
+            spanGaps: false,
+        }
+    ]
+};
+
+        var ctx = document.getElementById("myChart");
+        var scatterChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    yAxes: [{
+                         ticks: {
+                              reverse: true
+                         }
+                    }],
+//                    xAxes: [{
+//                         ticks: {
+//                              reverse: true
+//                         }
+//                    }]
+                }
+            }
+        });
+//        for(var i in $scope.competitors){
+//        data.addColumn('number', $scope.competitors[i]);
+//      }
+$scope.$watch('data.group1', function(value) {
+       if(value === '7'){
+        scatterChart.data.labels = $scope.Last7Days();
+//        scatterChart.data.datasets.data[0] = scatterChart.data.datasets[0].data.slice(0,7);
+//        scatterChart.data.datasets.data[1] = scatterChart.data.datasets[1].data.slice(0,7);
+        scatterChart.update();
+       } else if (value === '14'){
+        scatterChart.data.labels = $scope.Last14Days();
+        scatterChart.update();
+       } else {
+        scatterChart.data.labels = $scope.Last30Days();
+        scatterChart.update();
+       }
+ });
+
+
 
         vm.reports = [];
 
@@ -61,6 +163,10 @@
             Report.query(function(result) {
                 vm.reports = result;
             });
+        }
+
+        function selected(button) {
+            $log.info(button);
         }
     }
 })();

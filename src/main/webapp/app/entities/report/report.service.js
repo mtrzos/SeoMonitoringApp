@@ -4,7 +4,7 @@
         .module('seoApp')
         .factory('Report', Report);
 
-    Report.$inject = ['$resource', 'DateUtils'];
+    Report.$inject = ['$resource', 'DateUtils', '$http'];
 
     function Report ($resource, DateUtils) {
         var resourceUrl =  'api/reports/:id';

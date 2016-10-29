@@ -1,8 +1,21 @@
-<div ng-cloak>
+<div ng-cloak ng-controller="DiagramController as ctrl">
     <div class="row">
-        <div class="col-md-8">
+        <p>Selected Value: <span class="radioValue">{{ data.group1 }}</span> </p>
+        <md-radio-group ng-model="data.group1">
 
-            <div id="linechart_material"/>
+            <md-radio-button value="30" class="md-primary">30 days</md-radio-button>
+            <md-radio-button value="14"> 14 days </md-radio-button>
+            <md-radio-button value="7" class="md-checked">7 days</md-radio-button>
+
+        </md-radio-group>
+        </hr>
+        <div class="col-md-8">
+            <!--<p ng-repeat="location in locations">{{ location }}</p>-->
+            <!--<p ng-repeat="report in locationReports">{{ report.date }}</p>-->
+            <!--<p ng-repeat="competitor in competitors">{{ competitor }}</p>-->
+            <!--<div id="linechart_material"/>-->
+
+            <canvas id="myChart" ></canvas>
         </div>
     </div>
 </div>
