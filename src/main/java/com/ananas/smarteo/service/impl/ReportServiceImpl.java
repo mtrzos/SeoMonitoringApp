@@ -49,6 +49,45 @@ public class ReportServiceImpl implements ReportService{
     }
 
     /**
+     *  Get the location reports.
+     *
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public List<Report> findByLocation(String location) {
+        log.debug("Request to get location Reports");
+        List<Report> result = reportRepository.findByLocation(location);
+
+        return result;
+    }
+
+    /**
+     *  Get the location reports.
+     *
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public List<Report> findByUserIsCurrentUser() {
+        log.debug("Request to get location Reports");
+        List<Report> result = reportRepository.findByUserIsCurrentUser();
+
+        return result;
+    }
+
+    /**
+     *  Get the location reports.
+     *
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public List<String> findDistinctLocation() {
+        log.debug("Request to get location Reports");
+        List<String> result = reportRepository.findDistinctLocation();
+
+        return result;
+    }
+
+    /**
      *  Get one report by id.
      *
      *  @param id the id of the entity

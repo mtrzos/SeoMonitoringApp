@@ -91,6 +91,48 @@ public class ReportResource {
     }
 
     /**
+     * GET  /reports/location/:location : get the "location" reports.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of reports in body
+     */
+    @RequestMapping(value = "/reports/location/{location}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<Report> getLocationReports(@PathVariable String location) {
+        log.debug("REST request to get location Reports");
+        return reportService.findByLocation(location);
+    }
+
+    /**
+     * GET  /reports/myLocations : get the "location" reports.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of reports in body
+     */
+    @RequestMapping(value = "/reports/myLocations",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<String> getLocations() {
+        log.debug("REST request to get location Reports");
+        return reportService.findDistinctLocation();
+    }
+
+    /**
+     * GET  /reports/location/:location : get the "location" reports.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of reports in body
+     */
+    @RequestMapping(value = "/reports/my",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<Report> getUsersReports() {
+        log.debug("REST request to get location Reports");
+        return reportService.findByUserIsCurrentUser();
+    }
+
+    /**
      * GET  /reports/:id : get the "id" report.
      *
      * @param id the id of the report to retrieve

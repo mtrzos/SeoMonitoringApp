@@ -25,6 +25,27 @@ public interface ReportService {
     List<Report> findAll();
 
     /**
+     *  Get the location reports.
+     *
+     *  @return the list of entities
+     */
+    List<Report> findByLocation(String location);
+
+    /**
+     *  Get the user's reports.
+     *
+     *  @return the list of entities
+     */
+    List<Report> findByUserIsCurrentUser();
+
+    /**
+     *  Get the user's locations.
+     *
+     *  @return the list of entities
+     */
+    List<String> findDistinctLocation();
+
+    /**
      *  Get the "id" report.
      *
      *  @param id the id of the entity
