@@ -20,7 +20,7 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     changed = require('gulp-changed'),
     gulpIf = require('gulp-if'),
-    assets = require("gulp-assets");;
+    assets = require("gulp-assets");
 
 var handleErrors = require('./gulp/handle-errors'),
     serve = require('./gulp/serve'),
