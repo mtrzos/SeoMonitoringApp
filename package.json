@@ -58,7 +58,8 @@
     "run-sequence": "1.2.2",
     "xml2js": "0.4.17",
     "yargs": "5.0.0",
-    "node-sass": "4.0.0"
+    "node-sass": "4.0.0",
+    "browser-sync ": "2.18.5"
   },
   "engines": {
     "node": "^4.3"
