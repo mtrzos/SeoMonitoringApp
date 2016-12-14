@@ -59,7 +59,8 @@
     "xml2js": "0.4.17",
     "yargs": "5.0.0",
     "node-sass": "4.0.0",
-    "browser-sync ": "2.18.5"
+    "browser-sync ": "2.18.5",
+    "gulp-notify": "2.2.0"
   },
   "engines": {
     "node": "^4.3"
