@@ -15,7 +15,6 @@
     "event-stream": "3.3.4",
     "generator-jhipster": "3.12.1",
     "gulp": "3.9.1",
-    "gulp-assets": "0.2.2",
     "gulp-expect-file": "0.0.7",
     "gulp-angular-filesort": "1.1.1",
     "gulp-angular-templatecache": "2.0.0",
