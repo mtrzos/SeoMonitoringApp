@@ -11,15 +11,12 @@
         var vm = this;
         DiagramService.getLocations().then(function(data){
             $scope.locations = data;
-//            $log.info("Then: " + $scope.locations);
         });
         DiagramService.getReportsForLocation('glasgow').then(function(data){
             $scope.locationReports = data;
-//            $log.info($scope.locationReports);
         });
         DiagramService.getCompetitors().then(function(data){
             $scope.competitors = data;
-//            $log.info("Competitors: "+$scope.competitors);
         });
 
 
@@ -34,7 +31,7 @@ $scope.Last30Days = function() {
         var year = d.getFullYear();
         result.push(day+"-"+month+"-"+year)
     }
-    return result;
+    return result.reverse();
 }
 
 $scope.Last14Days = function () {
@@ -47,7 +44,7 @@ $scope.Last14Days = function () {
         var year = d.getFullYear();
         result.push(day+"-"+month+"-"+year)
     }
-    return result;
+    return result.reverse();
 }
 
 $scope.Last7Days = function () {
@@ -60,7 +57,7 @@ $scope.Last7Days = function () {
         var year = d.getFullYear();
         result.push(day+"-"+month+"-"+year)
     }
-    return result;
+    return result.reverse();
 }
 
 
@@ -126,23 +123,13 @@ var data = {
                          ticks: {
                               reverse: true
                          }
-                    }],
-//                    xAxes: [{
-//                         ticks: {
-//                              reverse: true
-//                         }
-//                    }]
+                    }]
                 }
             }
         });
-//        for(var i in $scope.competitors){
-//        data.addColumn('number', $scope.competitors[i]);
-//      }
 $scope.$watch('data.group1', function(value) {
        if(value === '7'){
         scatterChart.data.labels = $scope.Last7Days();
-//        scatterChart.data.datasets.data[0] = scatterChart.data.datasets[0].data.slice(0,7);
-//        scatterChart.data.datasets.data[1] = scatterChart.data.datasets[1].data.slice(0,7);
         scatterChart.update();
        } else if (value === '14'){
         scatterChart.data.labels = $scope.Last14Days();
