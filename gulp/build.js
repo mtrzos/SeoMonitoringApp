@@ -45,7 +45,7 @@ module.exports = function() {
 //        .pipe(gulpIf('*.css', cssTask()))
 //        .pipe(gulpIf('*.html', htmlmin({collapseWhitespace: true})))
 //        .pipe(gulpIf('**/*.!(html)', rev()))
-//        .pipe(revReplace({manifest: manifest}))
-//        .pipe(sourcemaps.write('.'))
+        .pipe(revReplace({manifest: manifest}))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(config.dist));
 };
