@@ -30,6 +30,7 @@
                     });
 
         function login() {
+        console.log('Opening modal');
             collapseNavbar();
             LoginService.open();
         }

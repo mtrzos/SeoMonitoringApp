@@ -19,7 +19,8 @@
                 "login": "Sign in",
                 "logout": "Sign out",
                 "payments": "Payments",
-                "register": "Register"
+                "register": "Register",
+                "dashboard": "Dashboard"
             },
             "admin": {
                 "main": "Administration",

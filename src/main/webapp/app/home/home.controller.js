@@ -22,8 +22,10 @@
 
         function getAccount() {
             Principal.identity().then(function(account) {
+            console.log('Sending a request for the user');
                 vm.account = account;
                 vm.isAuthenticated = Principal.isAuthenticated;
+                console.log('is Auth: ' + Principal.isAuthenticated);
             });
         }
         function register () {

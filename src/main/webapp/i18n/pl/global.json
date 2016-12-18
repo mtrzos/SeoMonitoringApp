@@ -19,7 +19,8 @@
                 "login": "Autoryzacja",
                 "logout": "Wyloguj",
                 "payments": "Payments",
-                "register": "Zarejestruj się"
+                "register": "Zarejestruj się",
+                "dashboard": "Pulpit"
             },
             "admin": {
                 "main": "Administracja",
