@@ -21,6 +21,12 @@
         <!-- build:css content/css/main.css -->
         <link rel="stylesheet" href="content/css/main.css">
         <!-- endbuild -->
+        <!-- build:css content/css/bootstrap.css -->
+        <link rel="stylesheet" href="content/css/bootstrap.css">
+        <!-- endbuild -->
+        <!-- build:css content/css/landing-page.css -->
+        <link rel="stylesheet" href="content/css/landing-page.css">
+        <!-- endbuild -->
 
         <!--     Fonts and icons     -->
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -342,8 +348,12 @@
     <script src="bower_components/angular-material/angular-material.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
-    <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-    <script src="assets/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
-    <script src="assets/js/bootstrap.js" type="text/javascript"></script>
-    <script src="app/awesome-landing-page.js" type="text/javascript"></script>
+
+    <!-- build:js app/app.js  -->
+    <!-- inject:js -->
+    <script src="app/awesome-landing-page.js"></script>
+    <script src="app/bootstrap.js"></script>
+
+    <!-- endinject -->
+    <!-- endbuild -->
 </html>
