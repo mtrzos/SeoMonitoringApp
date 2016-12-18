@@ -61,7 +61,8 @@
     "yargs": "5.0.0",
     "node-sass": "4.0.0",
     "browser-sync ": "2.18.5",
-    "gulp-notify": "2.2.0"
+    "gulp-notify": "2.2.0",
+    "generator-jhipster-google-analytics": "0.0.1"
   },
   "engines": {
     "node": "^4.3"
