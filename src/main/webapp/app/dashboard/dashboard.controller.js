@@ -3,11 +3,11 @@
 
     angular
         .module('seoApp')
-        .controller('HomeController', HomeController);
+        .controller('DashboardController', DashboardController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    DashboardController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
 
-    function HomeController ($scope, Principal, LoginService, $state) {
+    function DashboardController ($scope, Principal, LoginService, $state) {
         var vm = this;
 
         vm.account = null;

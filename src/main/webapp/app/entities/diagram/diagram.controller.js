@@ -21,97 +21,97 @@
 
 
 
-$scope.Last30Days = function() {
-    var result = [];
-    for (var i=0; i<31; i++) {
-        var d = new Date();
-        d.setDate(d.getDate() - i);
-        var day = d.getDate();
-        var month = d.getMonth();
-        var year = d.getFullYear();
-        result.push(day+"-"+month+"-"+year)
-    }
-    return result.reverse();
-}
+        $scope.Last30Days = function() {
+            var result = [];
+            for (var i=0; i<31; i++) {
+                var d = new Date();
+                d.setDate(d.getDate() - i);
+                var day = d.getDate();
+                var month = d.getMonth();
+                var year = d.getFullYear();
+                result.push(day+"-"+month+"-"+year);
+            }
+            return result.reverse();
+        };
 
-$scope.Last14Days = function () {
-    var result = [];
-    for (var i=0; i<14; i++) {
-        var d = new Date();
-        d.setDate(d.getDate() - i);
-        var day = d.getDate();
-        var month = d.getMonth();
-        var year = d.getFullYear();
-        result.push(day+"-"+month+"-"+year)
-    }
-    return result.reverse();
-}
+        $scope.Last14Days = function () {
+            var result = [];
+            for (var i=0; i<14; i++) {
+                var d = new Date();
+                d.setDate(d.getDate() - i);
+                var day = d.getDate();
+                var month = d.getMonth();
+                var year = d.getFullYear();
+                result.push(day+"-"+month+"-"+year);
+            }
+            return result.reverse();
+        };
 
-$scope.Last7Days = function () {
-    var result = [];
-    for (var i=0; i<7; i++) {
-        var d = new Date();
-        d.setDate(d.getDate() - i);
-        var day = d.getDate();
-        var month = d.getMonth();
-        var year = d.getFullYear();
-        result.push(day+"-"+month+"-"+year)
-    }
-    return result.reverse();
-}
+        $scope.Last7Days = function () {
+            var result = [];
+            for (var i=0; i<7; i++) {
+                var d = new Date();
+                d.setDate(d.getDate() - i);
+                var day = d.getDate();
+                var month = d.getMonth();
+                var year = d.getFullYear();
+                result.push(day+"-"+month+"-"+year);
+            }
+            return result.reverse();
+        };
 
 
-$scope.week = $scope.Last7Days();
+        $scope.week = $scope.Last7Days();
 
-var data = {
-    labels: $scope.week,
-    datasets: [
-        {
-            label: "My First dataset",
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "rgba(75,192,192,0.4)",
-            borderColor: "rgba(75,192,192,1)",
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(75,192,192,1)",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(75,192,192,1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
-            data: [6, 5, 8, 8, 5, 5, 4, 1, 3, 7, 9, 5, 6, 7],
-            spanGaps: false,
-        },
-        {
-            label: "My second dataset",
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "rgba(75,192,192,0.4)",
-            borderColor: "rgba(75,192,192,1)",
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(75,192,192,1)",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(75,192,192,1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
-            data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13],
-            spanGaps: false,
-        }
-    ]
-};
+        var data = {
+            labels: $scope.week,
+            datasets: [
+                {
+                    label: "My First dataset",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: "rgba(75,192,192,0.4)",
+                    borderColor: "rgba(75,192,192,1)",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                    data: [6, 5, 8, 8, 5, 5, 4, 1, 3, 7, 9, 5, 6, 7],
+                    spanGaps: false,
+                },
+                {
+                    label: "My second dataset",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: "rgba(75,192,192,0.4)",
+                    borderColor: "rgba(75,192,192,1)",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                    data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13],
+                    spanGaps: false,
+                }
+            ]
+        };
 
         var ctx = document.getElementById("myChart");
         var scatterChart = new Chart(ctx, {
@@ -120,25 +120,25 @@ var data = {
             options: {
                 scales: {
                     yAxes: [{
-                         ticks: {
-                              reverse: true
-                         }
+                        ticks: {
+                            reverse: true
+                        }
                     }]
                 }
             }
         });
-$scope.$watch('data.group1', function(value) {
-       if(value === '7'){
-        scatterChart.data.labels = $scope.Last7Days();
-        scatterChart.update();
-       } else if (value === '14'){
-        scatterChart.data.labels = $scope.Last14Days();
-        scatterChart.update();
-       } else {
-        scatterChart.data.labels = $scope.Last30Days();
-        scatterChart.update();
-       }
- });
+        $scope.$watch('data.group1', function(value) {
+            if(value === '7'){
+                scatterChart.data.labels = $scope.Last7Days();
+                scatterChart.update();
+            } else if (value === '14'){
+                scatterChart.data.labels = $scope.Last14Days();
+                scatterChart.update();
+            } else {
+                scatterChart.data.labels = $scope.Last30Days();
+                scatterChart.update();
+            }
+        });
 
 
 

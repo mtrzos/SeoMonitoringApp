@@ -97,7 +97,7 @@ md = {
         image_src = $sidebar.data('image');
 
         if(image_src !== undefined){
-            sidebar_container = '<div class="sidebar-background" style="background-image: url(' + image_src + ') "/>'
+            sidebar_container = '<div class="sidebar-background" style="background-image: url(' + image_src + ') "/>';
             $sidebar.append(sidebar_container);
         }
     },
@@ -115,17 +115,17 @@ md = {
     },
 
     checkScrollForTransparentNavbar: debounce(function() {
-            if($(document).scrollTop() > 260 ) {
-                if(transparent) {
-                    transparent = false;
-                    $('.navbar-color-on-scroll').removeClass('navbar-transparent');
-                }
-            } else {
-                if( !transparent ) {
-                    transparent = true;
-                    $('.navbar-color-on-scroll').addClass('navbar-transparent');
-                }
+        if($(document).scrollTop() > 260 ) {
+            if(transparent) {
+                transparent = false;
+                $('.navbar-color-on-scroll').removeClass('navbar-transparent');
             }
+        } else {
+            if( !transparent ) {
+                transparent = true;
+                $('.navbar-color-on-scroll').addClass('navbar-transparent');
+            }
+        }
     }, 17),
 
 
@@ -206,11 +206,11 @@ md = {
 
                         $layer.removeClass('visible');
 
-                         setTimeout(function(){
+                        setTimeout(function(){
                             $layer.remove();
                             $toggle.removeClass('toggled');
 
-                         }, 400);
+                        }, 400);
                     });
 
                     $('html').addClass('nav-open');
@@ -281,11 +281,11 @@ md = {
 
                         $layer.removeClass('visible');
 
-                         setTimeout(function(){
+                        setTimeout(function(){
                             $layer.remove();
                             $toggle.removeClass('toggled');
 
-                         }, 400);
+                        }, 400);
                     });
 
                     $('html').addClass('nav-open');
@@ -301,26 +301,26 @@ md = {
     startAnimationForLineChart: function(chart){
 
         chart.on('draw', function(data) {
-          if(data.type === 'line' || data.type === 'area') {
-            data.element.animate({
-              d: {
-                begin: 600,
-                dur: 700,
-                from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
-                to: data.path.clone().stringify(),
-                easing: Chartist.Svg.Easing.easeOutQuint
-              }
-            });
-          } else if(data.type === 'point') {
+            if(data.type === 'line' || data.type === 'area') {
+                data.element.animate({
+                    d: {
+                        begin: 600,
+                        dur: 700,
+                        from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
+                        to: data.path.clone().stringify(),
+                        easing: Chartist.Svg.Easing.easeOutQuint
+                    }
+                });
+            } else if(data.type === 'point') {
                 seq++;
                 data.element.animate({
-                  opacity: {
-                    begin: seq * delays,
-                    dur: durations,
-                    from: 0,
-                    to: 1,
-                    easing: 'ease'
-                  }
+                    opacity: {
+                        begin: seq * delays,
+                        dur: durations,
+                        from: 0,
+                        to: 1,
+                        easing: 'ease'
+                    }
                 });
             }
         });
@@ -330,23 +330,23 @@ md = {
     startAnimationForBarChart: function(chart){
 
         chart.on('draw', function(data) {
-          if(data.type === 'bar'){
-              seq2++;
-              data.element.animate({
-                opacity: {
-                  begin: seq2 * delays2,
-                  dur: durations2,
-                  from: 0,
-                  to: 1,
-                  easing: 'ease'
-                }
-              });
-          }
+            if(data.type === 'bar'){
+                seq2++;
+                data.element.animate({
+                    opacity: {
+                        begin: seq2 * delays2,
+                        dur: durations2,
+                        from: 0,
+                        to: 1,
+                        easing: 'ease'
+                    }
+                });
+            }
         });
 
         seq2 = 0;
     }
-}
+};
 
 
 // Returns a function, that, as long as it continues to be invoked, will not
@@ -355,14 +355,14 @@ md = {
 // leading edge, instead of the trailing.
 
 function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		clearTimeout(timeout);
-		timeout = setTimeout(function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		}, wait);
-		if (immediate && !timeout) func.apply(context, args);
-	};
-};
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        }, wait);
+        if (immediate && !timeout) func.apply(context, args);
+    };
+}

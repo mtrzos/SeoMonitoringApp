@@ -25,12 +25,12 @@
         vm.$state = $state;
 
         Principal.identity().then(function(account) {
-                        vm.account = account;
-                        vm.isAuthenticated = Principal.isAuthenticated;
-                    });
+            vm.account = account;
+            vm.isAuthenticated = Principal.isAuthenticated;
+        });
 
         function login() {
-        console.log('Opening modal');
+            console.log('Opening modal');
             collapseNavbar();
             LoginService.open();
         }

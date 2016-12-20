@@ -39,12 +39,12 @@
         }
 
         $('.switch').each(function() {
-            var selector = $(this).parent('li')
+            var selector = $(this).parent('li');
             $(this).click(function() {
                 if (selector.siblings().hasClass('active')) {
                     selector.addClass('active');
                     selector.siblings().removeClass('active');
-                    var slide = $(this).attr('data-slide')
+                    var slide = $(this).attr('data-slide');
                     var lastClass = $('body').attr('class').split(' ').pop();
                     $('body').removeClass(lastClass);
                     $('body').addClass('landing-page' + slide);
@@ -60,12 +60,12 @@
                 if (isElementInViewport($elem)) {
                     var parent_top = $elem.offset().top;
                     var window_bottom = $(window).scrollTop();
-                    var $image = $elem.find('.parallax-background-image')
+                    var $image = $elem.find('.parallax-background-image');
                     var $oVal = ((window_bottom - parent_top) / 3);
                     $image.css('margin-top', $oVal + 'px');
                 }
             });
-        }, 6)
+        }, 6);
 
         function debounce(func, wait, immediate) {
             var timeout;
@@ -79,7 +79,7 @@
                 }, wait);
                 if (immediate && !timeout) func.apply(context, args);
             };
-        };
+        }
 
 
         function isElementInViewport(elem) {

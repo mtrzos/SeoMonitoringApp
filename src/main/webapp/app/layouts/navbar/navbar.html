@@ -1,4 +1,4 @@
-<nav class="navbar navbar-transparent navbar-top" role="navigation">
+<nav class="navbar navbar-transparent navbar-top navbar-absolute" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -137,7 +137,7 @@
                     </ul>
                 </li>
                 <li ui-sref-active="active" ng-switch-when="true">
-                    <a href="/dashboard.html" id="dashboard">
+                    <a ui-sref="dashboard" id="dashboard" ng-click="vm.collapseNavbar()">
                         <span class="glyphicon glyphicon-stats"></span>&nbsp;
                         <span data-translate="global.menu.account.dashboard">Dashboard</span>
                     </a>
