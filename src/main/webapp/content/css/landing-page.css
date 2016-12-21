@@ -1585,7 +1585,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#de8e0009', e
         padding: 5px 10px 15px;
     }
     .dropdown .dropdown-menu{
-      top: -30px;
+          border-top-right-radius: 10px !important;
+          border-top-left-radius: 10px !important;
+          opacity: 0.95 !important;
+          background-color: snow !important;
     }
     .fixed-plugin .dropdown-menu:before,
     .fixed-plugin .dropdown-menu:after{
