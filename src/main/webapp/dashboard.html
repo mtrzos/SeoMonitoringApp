@@ -626,8 +626,10 @@
 <!-- endbuild -->
 
 
-<!-- build:js app/app.js  -->
+<!-- build:js app/dashboardApp.js  -->
 <!-- inject:js -->
+<script src="app/custom/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="app/custom/demo.js"></script>
 <script src="app/dashboardApp/dashboard.module.js"></script>
 <script src="app/dashboardApp/services/user/user.service.js"></script>
 <script src="app/dashboardApp/services/profiles/profile.service.js"></script>
@@ -704,9 +706,6 @@
 <script src="app/dashboardApp/blocks/config/http.config.js"></script>
 <script src="app/dashboardApp/blocks/config/compile.config.js"></script>
 <script src="app/dashboardApp/blocks/config/alert.config.js"></script>
-<script src="app/dashboard/dashboard.state.js"></script>
-<script src="app/dashboard/dashboard.controller.js"></script>
-
 <!-- endinject -->
 <!-- endbuild -->
 
