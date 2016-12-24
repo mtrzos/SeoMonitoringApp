@@ -4,6 +4,6 @@
     angular
         .module('seoApp')
         .constant('VERSION', "0.0.3-SNAPSHOT")
-        .constant('DEBUG_INFO_ENABLED', false)
+        .constant('DEBUG_INFO_ENABLED', true)
 ;
 })();

@@ -8,23 +8,26 @@
     stateConfig.$inject = ['$stateProvider'];
 
     function stateConfig($stateProvider) {
-        $stateProvider.state('app', {
-            abstract: true,
+        $stateProvider
+        .state('diagram', {
+            parent: 'entity',
+            url: 'dashboard/diagram',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'dashboardApp.report.home.title'
+            },
             views: {
-                'navbar@': {
-                    templateUrl: 'app/dashboardApp/layouts/navbar/navbar.html',
-                    controller: 'NavbarController',
+                'content@': {
+                    templateUrl: 'dashboardApp/entities/diagram/diagram.html',
+                    controller: 'DiagramController',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
-                authorize: ['Auth',
-                    function (Auth) {
-                        return Auth.authorize();
-                    }
-                ],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('report');
                     $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
                 }]
             }
         });

@@ -18,7 +18,7 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/dashboardApp/entities/report/reports.html',
+                    templateUrl: 'dashboardApp/entities/report/reports.html',
                     controller: 'ReportController',
                     controllerAs: 'vm'
                 }
@@ -40,7 +40,7 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/dashboardApp/entities/report/report-detail.html',
+                    templateUrl: 'dashboardApp/entities/report/report-detail.html',
                     controller: 'ReportDetailController',
                     controllerAs: 'vm'
                 }
@@ -71,7 +71,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/dashboardApp/entities/report/report-dialog.html',
+                    templateUrl: 'dashboardApp/entities/report/report-dialog.html',
                     controller: 'ReportDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
@@ -96,7 +96,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/dashboardApp/entities/report/report-dialog.html',
+                    templateUrl: 'dashboardApp/entities/report/report-dialog.html',
                     controller: 'ReportDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
@@ -128,7 +128,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/dashboardApp/entities/report/report-dialog.html',
+                    templateUrl: 'dashboardApp/entities/report/report-dialog.html',
                     controller: 'ReportDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
@@ -153,7 +153,7 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/dashboardApp/entities/report/report-delete-dialog.html',
+                    templateUrl: 'dashboardApp/entities/report/report-delete-dialog.html',
                     controller: 'ReportDeleteController',
                     controllerAs: 'vm',
                     size: 'md',

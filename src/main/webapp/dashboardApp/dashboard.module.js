@@ -27,5 +27,6 @@
     function run(stateHandler, translationHandler) {
         stateHandler.initialize();
         translationHandler.initialize();
+        console.log("Starting dashboardapp");
     }
 })();

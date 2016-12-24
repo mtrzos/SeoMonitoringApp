@@ -10,15 +10,15 @@
     function stateConfig($stateProvider) {
         $stateProvider
             .state('error', {
-                parent: 'app',
-                url: 'dashboard/error',
+                parent: 'dashboardApp',
+                url: 'dashboard.html#/error',
                 data: {
                     authorities: [],
                     pageTitle: 'error.title'
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'app/dashboardApp/layouts/error/error.html'
+                        templateUrl: 'dashboardApp/layouts/error/error.html'
                     }
                 },
                 resolve: {
@@ -29,14 +29,14 @@
                 }
             })
             .state('accessdenied', {
-                parent: 'app',
+                parent: 'dashboardApp',
                 url: 'dashboard/accessdenied',
                 data: {
                     authorities: []
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'app/dashboardApp/layouts/error/accessdenied.html'
+                        templateUrl: 'dashboardApp/layouts/error/accessdenied.html'
                     }
                 },
                 resolve: {
