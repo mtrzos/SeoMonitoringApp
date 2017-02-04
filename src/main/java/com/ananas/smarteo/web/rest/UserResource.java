@@ -27,6 +27,7 @@ import java.net.URISyntaxException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.io.*;
 
 /**
  * REST controller for managing users.
@@ -66,6 +67,32 @@ public class UserResource {
 
     @Inject
     private UserService userService;
+
+    @RequestMapping(value = "/query/{keyword}/{website}/{location}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getQuery(){
+        try{
+            ProcessBuilder pb = new ProcessBuilder("/root/OpenVPN_config_Linux/Linux/vpnonline_poland tun/singleQueryVPN.sh",
+                "pozyczki pod zastaw", "smartvest", "Poland-Poznan-New.ovpn");
+            Process process = pb.start();
+
+            //Read out dir output
+            InputStream is = process.getInputStream();
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader(isr);
+            String line;
+            System.out.printf("Output of running  is:\n");
+
+            while ((line = br.readLine()) != null) {
+                line += line;
+                System.out.println(line);
+            }
+        }catch(IOException ex){
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return line;
+    }
 
     /**
      * POST  /users  : Creates a new user.
@@ -146,7 +173,7 @@ public class UserResource {
 
     /**
      * GET  /users : get all users.
-     * 
+     *
      * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and with body all users
      * @throws URISyntaxException if the pagination headers couldn't be generated

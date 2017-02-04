@@ -12,7 +12,7 @@
         var vm = this;
 
         if($location.search().successful === 'true'){
-          $mdToast.show(
+            $mdToast.show(
             $mdToast.simple()
               .textContent('Success!')
               .position('top')
@@ -20,7 +20,7 @@
               .theme("success-toast")
           );
         }else if($location.search().successful === 'false'){
-          $mdToast.show(
+            $mdToast.show(
             $mdToast.simple()
               .textContent('Error!')
               .position('top')
@@ -38,36 +38,36 @@
         });
 
         function submitPayment(){
-          $window.alert("!!!!!!AAAAA");
-          var $form = angular.element('#payment-form');
+            $window.alert("!!!!!!AAAAA");
+            var $form = angular.element('#payment-form');
             $form.submit(function(event) {
             // Disable the submit button to prevent repeated clicks:
-            $form.find('.submit').prop('disabled', true);
+                $form.find('.submit').prop('disabled', true);
 
             // Request a token from Stripe:
                 Stripe.card.createToken($form, stripeResponseHandler);
                 $window.alert("!!!!!!AAAAA");
             // Prevent the form from being submitted:
-            return false;
-          });
+                return false;
+            });
         }
 
         function stripeResponseHandler(status, response) {
-          $window.alert("!!!!!!AAAAA");
-          var $form = angular.element('#payment-form');
-          var text = $form.find('input[name="stripeEmail"]').val();
-          $window.alert(text);
+            $window.alert("!!!!!!AAAAA");
+            var $form = angular.element('#payment-form');
+            var text = $form.find('input[name="stripeEmail"]').val();
+            $window.alert(text);
           // Grab the form:
-          var $form = angular.element('#payment-form');
+            var $form = angular.element('#payment-form');
 
             if (response.error) { // Problem!
 
             // Show the errors on the form:
-              $form.find('.payment-errors').text(response.error.message);
-              $form.find('.submit').prop('disabled', false); // Re-enable submission
+                $form.find('.payment-errors').text(response.error.message);
+                $form.find('.submit').prop('disabled', false); // Re-enable submission
 
-          } else { // Token was created!
-            var text = $form.find('input[name="stripeEmail"]').val();
+            } else { // Token was created!
+                var text = $form.find('input[name="stripeEmail"]').val();
             //$window.alert(text);
             // Get the token ID:
             //var token = response.id;

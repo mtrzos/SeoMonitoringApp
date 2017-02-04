@@ -1,0 +1,27 @@
+{
+    "seoApp": {
+        "report" : {
+            "home": {
+                "title": "Reports",
+                "createLabel": "Dodaj Report",
+                "createOrEditLabel": "Dodaj lub edytuj: Report",
+                "search": "Search for Report"
+            },
+            "created": "A new Report is created with identifier {{ param }}",
+            "updated": "A Report is updated with identifier {{ param }}",
+            "deleted": "A Report is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Report {{ id }}?"
+            },
+            "detail": {
+                "title": "Report"
+            },
+            "date": "Date",
+            "position": "Position",
+            "phrase": "Phrase",
+            "website": "Website",
+            "location": "Location",
+            "user": "User"
+        }
+    }
+}

@@ -5,9 +5,9 @@
         .module('seoApp')
         .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['$state', 'Auth', 'Principal', 'ProfileService', 'LoginService'];
+    NavbarController.$inject = ['$state', 'Auth', 'Principal', 'ProfileService', 'LoginService', '$scope'];
 
-    function NavbarController ($state, Auth, Principal, ProfileService, LoginService) {
+    function NavbarController ($state, Auth, Principal, ProfileService, LoginService, $scope) {
         var vm = this;
 
         vm.isNavbarCollapsed = true;
@@ -23,13 +23,29 @@
         vm.toggleNavbar = toggleNavbar;
         vm.collapseNavbar = collapseNavbar;
         vm.$state = $state;
+        vm.account = null;
+        $scope.$on('authenticationSuccess', function() {
+                    getAccount();
+                });
 
-        Principal.identity().then(function(account) {
+                getAccount();
+
+                function getAccount() {
+                    Principal.identity().then(function(account) {
+                        console.log('Sending a request for the user');
                         vm.account = account;
                         vm.isAuthenticated = Principal.isAuthenticated;
+                        console.log('is Auth: ' + Principal.isAuthenticated);
                     });
+                }
+
+        Principal.identity().then(function(account) {
+            vm.account = account;
+            vm.isAuthenticated = Principal.isAuthenticated;
+        });
 
         function login() {
+            console.log('Opening modal');
             collapseNavbar();
             LoginService.open();
         }

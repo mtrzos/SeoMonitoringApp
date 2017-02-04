@@ -35,16 +35,16 @@ public class PaymentResource {
 	    public String getActiveProfiles1() {
 	        return "WORKS";
 	    }
-	
+
 	@RequestMapping(value = "/payments",
 			method = RequestMethod.POST,
 			consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ModelAndView getActiveProfiles(@RequestParam String stripeEmail, @RequestParam String stripeToken, 
+	public ModelAndView getActiveProfiles(@RequestParam String stripeEmail, @RequestParam String stripeToken,
 			@RequestParam String stripeTokenType, HttpServletRequest request) {
-		
+
 		Stripe.apiKey = "sk_test_exzDr8k9tj4F8dcd4TIeuLru";
-		
+
 		try {
 			  Map<String, Object> chargeParams = new HashMap<String, Object>();
 			  chargeParams.put("amount", 1000); // Amount in cents
@@ -61,8 +61,8 @@ public class PaymentResource {
 				return new ModelAndView("redirect:/#/payment?successful=false");
 			}
 
-			
+
 		return new ModelAndView("redirect:/#/payment?successful=true");
-	        
+
 	    }
 }

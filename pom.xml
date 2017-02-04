@@ -11,7 +11,7 @@
 
     <groupId>com.ananas.smarteo</groupId>
     <artifactId>seo</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>SEO</name>
 
@@ -446,7 +446,6 @@
                                         <artifactId>frontend-maven-plugin</artifactId>
                                         <versionRange>${frontend-maven-plugin.version}</versionRange>
                                         <goals>
-                                            <goal>install-node-and-npm</goal>
                                             <goal>npm</goal>
                                             <goal>bower</goal>
                                             <goal>gulp</goal>
@@ -645,17 +644,17 @@
                         </configuration>
                     </execution>
                     <!-- Ensures that the code coverage report for unit tests is created after unit tests have been run -->
-                    <execution>
-                        <id>post-unit-test</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                        <configuration>
-                            <dataFile>${project.testresult.directory}/coverage/jacoco/jacoco.exec</dataFile>
-                            <outputDirectory>${project.testresult.directory}/coverage/jacoco</outputDirectory>
-                        </configuration>
-                    </execution>
+                    <!--<execution>-->
+                        <!--<id>post-unit-test</id>-->
+                        <!--<phase>test</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>report</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<dataFile>${project.testresult.directory}/coverage/jacoco/jacoco.exec</dataFile>-->
+                            <!--<outputDirectory>${project.testresult.directory}/coverage/jacoco</outputDirectory>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
                 </executions>
             </plugin>
             <plugin>
@@ -775,7 +774,7 @@
                     <plugin>
                         <groupId>com.github.eirslett</groupId>
                         <artifactId>frontend-maven-plugin</artifactId>
-                        <version>1.0</version>
+                        <version>1.3</version>
                         <executions>
                             <execution>
                                 <id>install node and npm</id>
@@ -784,7 +783,7 @@
                                 </goals>
                                 <configuration>
                                     <nodeVersion>v4.6.0</nodeVersion>
-                                    <npmVersion>3.10.8</npmVersion>
+                                    <npmVersion>4.0.3</npmVersion>
                                 </configuration>
                             </execution>
                             <execution>
@@ -820,7 +819,7 @@
                                     <goal>gulp</goal>
                                 </goals>
                                 <configuration>
-                                    <arguments>build --no-notification</arguments>
+                                    <arguments>build</arguments>
                                 </configuration>
                             </execution>
                             <execution>
