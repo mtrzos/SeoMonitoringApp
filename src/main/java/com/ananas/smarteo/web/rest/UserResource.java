@@ -72,6 +72,8 @@ public class UserResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     public String getQuery(){
+
+        String line = "";
         try{
             ProcessBuilder pb = new ProcessBuilder("/root/OpenVPN_config_Linux/Linux/vpnonline_poland tun/singleQueryVPN.sh",
                 "pozyczki pod zastaw", "smartvest", "Poland-Poznan-New.ovpn");
@@ -81,7 +83,6 @@ public class UserResource {
             InputStream is = process.getInputStream();
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader br = new BufferedReader(isr);
-            String line;
             System.out.printf("Output of running  is:\n");
 
             while ((line = br.readLine()) != null) {
